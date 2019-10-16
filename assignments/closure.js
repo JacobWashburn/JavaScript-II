@@ -6,13 +6,16 @@
 let globalVariable = 25;
 const parent = function () {
   let firstVariable = globalVariable + 25;
+  console.log(`The parents variable = ${firstVariable}.`)
   function firstChild() {
     let unvailableToParent = firstVariable + 25;
+    console.log(`The firstChilds variable = ${unvailableToParent}.`);
     function secondChild() {
       let noToFirstChildandParent = unvailableToParent + 25;
+      console.log(`The secondChilds variable = ${noToFirstChildandParent}.`);
       function lastChild() {
         const sumOfAllOthers = noToFirstChildandParent + unvailableToParent + firstVariable + globalVariable;
-        console.log(`The last function can access all the other variables. The sum of all of them is ${sumOfAllOthers}.`)
+        console.log(`The lastChilds variable can access all the other variables. The sum of all of them is ${sumOfAllOthers}.`)
       }
       lastChild()
     }
@@ -20,6 +23,7 @@ const parent = function () {
   }
   firstChild()
 }
+console.log(`The global variable = ${globalVariable}.`)
 parent()
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
