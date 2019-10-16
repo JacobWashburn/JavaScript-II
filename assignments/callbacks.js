@@ -86,13 +86,12 @@ function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
   const checkList = list.includes(item);
-  console.log(checkList)
-  return cb(checkList);
+  return cb(checkList, item);
 }
 
-function listCheck(param) {
-  if (param === true) { return `it is in the list.` }
-  else  {return `it is not in the list.`}
+function listCheck(param, item) {
+  if (param === true) { return `${item} is in the list.` }
+  else  {return `${item} is not in the list.`;}
 }
 
 console.log(contains('scrapbook', items, listCheck))

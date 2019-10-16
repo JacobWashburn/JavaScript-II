@@ -3,7 +3,24 @@
 // Keep it simple! Remember a closure is just a function
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
-
+let globalVariable = 25;
+const parent = function () {
+  let firstVariable = globalVariable + 25;
+  function firstChild() {
+    let unvailableToParent = firstVariable + 25;
+    function secondChild() {
+      let noToFirstChildandParent = unvailableToParent + 25;
+      function lastChild() {
+        const sumOfAllOthers = noToFirstChildandParent + unvailableToParent + firstVariable + globalVariable;
+        console.log(`The last function can access all the other variables. The sum of all of them is ${sumOfAllOthers}.`)
+      }
+      lastChild()
+    }
+    secondChild()
+  }
+  firstChild()
+}
+parent()
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
